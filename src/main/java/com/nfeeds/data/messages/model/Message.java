@@ -13,16 +13,20 @@ import lombok.Setter;
 @Entity
 public class Message {
 
+    /** Incrementally auto-generated number that identifies a message uniquely. */
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
 
+    /** The identifier of the topic that the message is related to. */
     @Column(nullable = false)
     private String topicId;
 
+    /** Arbitrary string with the content of the message. */
     @Column(nullable = false)
     private String content;
 
+    /** Type of message, define how the system will treat it. */
     @Column(nullable = false)
     private String type;
 }
