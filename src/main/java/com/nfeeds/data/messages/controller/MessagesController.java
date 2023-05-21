@@ -48,7 +48,7 @@ public class MessagesController {
         @PutMapping("/{id}")
         public void updateMessage(@RequestBody Message body, @PathVariable("id") Integer message_id) {
                 log.debug(this.getClass().getSimpleName() + " - getMessages");
-                var message = messageRepository.findById(message_id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Message to update not found"))
+                var message = messageRepository.findById(message_id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Message to update not found"));
                 message.setContent(body.getContent());
                 message.setType(body.getType());
                 message.setTopicId(body.getTopicId());
